@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SignalR Real time graph</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.0/dist/browser/signalr.min.js"></script>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4" style="background-color:lavender;">
+                <label> Enter a value </label>
+                <input type="text" id="datapoint">
+                <button id="submitBtn">Add</button>
+                <button id="randomValueBtn">Add Random</button>
+
+                <br />
+                <table style="width:100%">
+                    <tr>
+                        <td>Current temperature: </td>
+                        <td>Current humidity: </td>
+                        <td>Current light index: </td>
+                        <td>Current heat index: </td>
+                    </tr>
+                    <tr>
+                        <td id="temp">0</td>
+                        <td id="humid">0</td>
+                        <td id="light">0</td>
+                        <td id="heat">0</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <input type="checkbox" id="checkbox" value="1" />
+        <label id="checkboxlabel" for="checkbox">Show temperature</label>
+        <div id="chartArea" style="display:none">
+            Temperature in degree Celcius
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox1" value="1" />
+        <label id="checkbox1label" for="checkbox1">Show humidity in percent</label>
+        <div id="chartArea1" style="display:none">
+            Humidity in air
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox2" value="1" />
+        <label id="checkbox2label" for="checkbox2">Show light index</label>
+        <div id="chartArea2" style="display:none">
+            Light index based on value read from sensor, varies from 0 to 4000
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox3" value="1" />
+        <label id="checkbox3label" for="checkbox3">Show heat index</label>
+        <div id="chartArea3" style="display:none">
+            this is the first div; visibility is controlled by the first checkbox
+        </div>
+
+        <br />
+        <div> This is from BME</div>
+        <br />
+        <div class="row">
+            <div class="col-sm-4" style="background-color:lavender;">
+               
+                <table style="width:100%">
+                    <tr>
+                        <td>Current temperature: </td>
+                        <td>Current humidity: </td>
+                        <td>Current pressure: </td>
+                        <td>Current air quality: </td>
+                    </tr>
+                    <tr>
+                        <td id="BMEtemp">0</td>
+                        <td id="BMEhumid">0</td>
+                        <td id="pressure">0</td>
+                        <td id="gas">0</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <input type="checkbox" id="checkbox4" value="1" />
+        <label id="checkbox4label" for="checkbox4">Show BME temperature</label>
+        <div id="chartArea4" style="display:none">
+            Temperature in degree Celcius
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox5" value="1" />
+        <label id="checkbox5label" for="checkbox5">Show BME humidity in percent</label>
+        <div id="chartArea5" style="display:none">
+            Humidity in air
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox6" value="1" />
+        <label id="checkbox6label" for="checkbox6">Show pressure</label>
+        <div id="chartArea6" style="display:none">
+            Light index based on value read from sensor, varies from 0 to 4000
+        </div>
+        <br />
+        <input type="checkbox" id="checkbox7" value="1" />
+        <label id="checkbox7label" for="checkbox7">Show gas</label>
+        <div id="chartArea7" style="display:none">
+            Air quality
+        </div>
+
+        <br />
+    </div>
+
+</body>
+<script src="../app/js/main.js"></script>
+</html>
